@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | DnD Virtual Assistance</title>
+    <style>
+        :root { --primary: #00bcd4; --bg: #ffffff; --text: #1a1a1a; --sub: #6c757d; --border: #e9ecef; }
+        
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Inter', -apple-system, sans-serif; -webkit-font-smoothing: antialiased; }
+        
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; animation: fadeIn 1s ease; }
+        
+        /* Navigation */
+        .header-nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
+        .logo { width: 140px; border: none; outline: none; display: block; }
+        nav a { text-decoration: none; color: var(--sub); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 30px; transition: 0.2s; }
+        nav a:hover, nav a.active { color: var(--primary); }
+
+        /* Hero / Story Section */
+        .about-hero { padding: 80px 0; border-bottom: 1px solid var(--border); }
+        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; }
+        .highlight { color: var(--primary); }
+        
+        .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 60px; text-align: left; }
+        .story-text p { font-size: 1.05rem; color: #495057; line-height: 1.8; margin-bottom: 25px; }
+        
+        .stats-sidebar { border-left: 1px solid var(--border); padding-left: 40px; }
+        .stat-item { margin-bottom: 40px; }
+        
+        /* Layout for counting numbers */
+        .stat-header { display: flex; align-items: baseline; color: var(--primary); font-weight: 800; }
+        .stat-item h2 { font-size: 2.5rem; margin: 0; color: var(--primary); }
+        .symbol { font-size: 1.8rem; font-weight: 800; }
+        
+        .stat-item span.label { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; color: var(--sub); display: block; margin-top: 5px; }
+
+        /* Mission Section */
+        .mission { padding: 100px 0; text-align: center; background: #f8f9fa; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; }
+        .mission-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+        .mission h2 { font-size: 1.8rem; margin-bottom: 20px; }
+        .mission p { font-size: 1.1rem; color: var(--sub); line-height: 1.8; }
+
+        /* Call to Action */
+        .cta-section { padding: 120px 0; text-align: center; }
+        .cta-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--sub); margin-bottom: 20px; display: block; }
+        .cta-link { font-size: 2rem; font-weight: 800; color: var(--text); text-decoration: none; transition: 0.3s; display: inline-block; }
+        .cta-link:hover { color: var(--primary); transform: translateY(-3px); }
+        .underline { height: 4px; width: 60px; background: var(--primary); margin: 20px auto 0; transition: width 0.3s ease; }
+        .cta-link:hover + .underline { width: 150px; }
+
+        footer { padding: 80px 0; text-align: center; font-size: 0.65rem; color: #adb5bd; letter-spacing: 2px; border-top: 1px solid var(--border); }
+
+        @media (max-width: 850px) { 
+            .story-grid { grid-template-columns: 1fr; } 
+            .stats-sidebar { border-left: none; padding-left: 0; border-top: 1px solid var(--border); padding-top: 40px; }
+            h1 { font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header-nav">
+            <a href="index.html">
+                <img src="logo.png" alt="DnD Media" class="logo">
+            </a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="about.html" class="active">About</a>
+                <a href="services.html">Services</a>
+            </nav>
+        </header>
+
+        <section class="about-hero">
+            <h1>We build the <span class="highlight">infrastructure</span> behind great brands.</h1>
+            
+            <div class="story-grid">
+                <div class="story-text">
+                    <p>At DND Media, we specialize in the technical and creative backbone of businesses. Founded on the principles of precision and efficiency, our agency bridges the gap between high-level vision and daily execution.</p>
+                    <p>With deep roots in backend administration and cinematic video production, we don't just manage tasks—we optimize workflows. Our goal is to reclaim your time, allowing you to focus on the trajectory of your business while we handle the gears that drive it.</p>
+                </div>
+                <div class="stats-sidebar">
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <h2 class="counter" data-target="100">0</h2>
+                            <span class="symbol">%</span>
+                        </div>
+                        <span class="label">Efficiency</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <h2 class="counter" data-target="24">0</h2>
+                            <span class="symbol">/</span>
+                            <h2 class="counter" data-target="7">0</h2>
+                        </div>
+                        <span class="label">Operational Support</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <div class="stat-header">
+                            <h2 class="counter" data-target="100">0</h2>
+                            <span class="symbol">%</span>
+                        </div>
+                        <span class="label">Remote Ready</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <section class="mission">
+        <div class="mission-inner">
+            <h2>The DND Mission</h2>
+            <p>To empower founders and creative teams by providing top-notch virtual assistance and marketing support that is seamless, reliable, and results-driven.</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="cta-section">
+            <span class="cta-label">Ready to Scale?</span>
+            <a href="services.html#packages" class="cta-link">LET'S WORK!</a>
+            <div class="underline"></div>
+        </section>
+    </div>
+
+    <footer>© 2026 DND MEDIA VIRTUAL ASSISTANCE SERVICES. ALL RIGHTS RESERVED.</footer>
+
+    <script>
+        const counters = document.querySelectorAll('.counter');
+        const speed = 100; // Adjust for faster/slower count
+
+        const startCounting = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const counter = entry.target;
+                    const target = +counter.getAttribute('data-target');
+                    
+                    const updateCount = () => {
+                        const count = +counter.innerText;
+                        const increment = target / speed;
+
+                        if (count < target) {
+                            // Ensures smaller numbers like '7' animate correctly
+                            const nextVal = count + (increment < 0.1 ? 0.1 : increment);
+                            counter.innerText = Math.ceil(nextVal);
+                            setTimeout(updateCount, 30); 
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+                    updateCount();
+                    observer.unobserve(counter);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(startCounting, {
+            threshold: 0.2 // Trigger when 20% of the element is visible
+        });
+
+        counters.forEach(counter => observer.observe(counter));
+    </script>
+</body>
+</html>
