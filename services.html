@@ -20,11 +20,11 @@
 
         /* Hero Section */
         .hero { text-align: center; padding: 80px 0 60px; }
-        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; }
+        h1 { font-size: 2.8rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 24px; color: var(--text); }
         .highlight { color: var(--primary); }
         .hero-p { font-size: 1.15rem; color: var(--sub); line-height: 1.8; max-width: 800px; margin: 0 auto; }
 
-        /* Professional Grid - How We Support You */
+        /* Professional Grid */
         .support-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; margin: 60px 0 100px; border-top: 1px solid var(--border); padding-top: 60px; }
         .pillar-box h3 { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); margin-bottom: 16px; display: flex; align-items: center; }
         .pillar-box h3::after { content: ""; flex: 1; height: 1px; background: var(--border); margin-left: 15px; }
@@ -41,21 +41,22 @@
         /* 3D Tier Cards */
         .tiers-section { padding: 100px 0; text-align: center; }
         .section-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; color: var(--sub); margin-bottom: 50px; display: block; }
-        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 25px; }
+        .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; margin-bottom: 25px; perspective: 1000px; }
         
         .card-3d { 
             background: #fff; padding: 45px 30px; border-radius: 8px; border: 1px solid var(--border); 
             text-align: left; transition: transform 0.1s ease-out, box-shadow 0.3s ease; 
             transform-style: preserve-3d; cursor: pointer;
+            will-change: transform;
         }
         .card-3d:hover { border-color: var(--primary); box-shadow: 0 20px 40px rgba(0, 188, 212, 0.1); }
         .card-3d h4 { font-size: 1rem; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px; }
-        .card-3d ul { padding: 0; list-style: none; margin: 0; }
-        .card-3d li { font-size: 0.9rem; color: var(--sub); margin-bottom: 12px; display: flex; align-items: center; }
+        .card-3d ul { padding: 0; list-style: none; margin: 0; pointer-events: none; }
+        .card-3d li { font-size: 0.9rem; color: var(--sub); margin-bottom: 12px; display: flex; align-items: center; transform: translateZ(20px); }
         .card-3d li::before { content: "→"; color: var(--primary); margin-right: 10px; font-weight: bold; }
 
         .custom-card { grid-column: span 3; text-align: center; border: 1px solid var(--border); background: #fff; border-radius: 8px; padding: 60px; }
-        .custom-card h2 { font-size: 1.6rem; margin-bottom: 15px; }
+        .custom-card h2 { font-size: 1.6rem; margin-bottom: 15px; transform: translateZ(30px); }
         
         /* Form Reveal */
         #form-container { max-height: 0; overflow: hidden; opacity: 0; transition: 0.8s cubic-bezier(0.4, 0, 0.2, 1); margin-top: 40px; }
@@ -80,7 +81,7 @@
         </header>
 
         <section class="hero">
-            <h1>Your <span class="highlight">Strategic Growth Partner</span></h1>
+            <h1>Your <span class="highlight">Strategic</span> Growth Partner</h1>
             <p class="hero-p">We provide the administrative and marketing infrastructure you need to reclaim your time. Our flexible model allows you to choose between leveraging our expert in-house team or utilizing our headhunting services to find a permanent addition to your own staff.</p>
         </section>
 
@@ -139,7 +140,7 @@
                     <h4>Essentials</h4>
                     <ul><li>Inbox Management</li><li>Calendar Support</li><li>Basic Admin</li></ul>
                 </div>
-                <div class="card-3d" style="border-top: 4px solid var(--primary);" onclick="toggleForm()">
+                <div class="card-3d" onclick="toggleForm()">
                     <h4>Growth Suite</h4>
                     <ul><li>Social Strategy</li><li>Content Scheduling</li><li>Lead Tracking</li></ul>
                 </div>
@@ -168,11 +169,17 @@
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                const rX = ((y - rect.height/2) / (rect.height/2)) * 8;
-                const rY = ((x - rect.width/2) / (rect.width/2)) * -8;
-                card.style.transform = `perspective(1000px) rotateX(${rX}deg) rotateY(${rY}deg)`;
+                
+                // Centering the rotation logic
+                const rX = ((y - rect.height/2) / (rect.height/2)) * 10;
+                const rY = ((x - rect.width/2) / (rect.width/2)) * -10;
+                
+                card.style.transform = `rotateX(${rX}deg) rotateY(${rY}deg) scale(1.02)`;
             });
-            card.addEventListener('mouseleave', () => card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)');
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateX(0) rotateY(0) scale(1)';
+            });
         });
 
         function toggleForm() {
