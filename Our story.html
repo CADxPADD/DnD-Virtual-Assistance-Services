@@ -19,30 +19,32 @@
         nav a:hover, nav a.active { color: var(--primary); }
 
         /* Story Hero */
-        .story-hero { padding: 80px 0; border-bottom: 1px solid var(--border); }
-        .kicker { color: var(--primary); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 15px; }
+        .story-hero { padding: 80px 0 40px; }
+        .kicker { color: var(--primary); font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 4px; display: block; margin-bottom: 15px; }
         h1 { font-size: 3rem; font-weight: 800; letter-spacing: -0.04em; margin: 0; line-height: 1.1; }
 
         /* Narrative Section */
-        .narrative-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; padding: 80px 0; }
-        .narrative-text p { font-size: 1.15rem; color: #444; line-height: 1.8; margin-bottom: 30px; }
-        
-        .philosophy-card { background: #f8f9fa; padding: 40px; border-radius: 12px; height: fit-content; }
-        .philosophy-card h3 { margin-top: 0; font-size: 1.2rem; }
-        .philosophy-card ul { padding: 0; list-style: none; }
-        .philosophy-card li { margin-bottom: 20px; padding-left: 25px; position: relative; color: var(--sub); font-size: 0.95rem; line-height: 1.6; }
-        .philosophy-card li::before { content: "—"; position: absolute; left: 0; color: var(--primary); font-weight: bold; }
+        .narrative { font-size: 1.15rem; color: #444; line-height: 1.9; max-width: 850px; margin-bottom: 80px; }
+        .narrative strong { color: var(--text); }
 
-        /* Values Section */
-        .values-section { padding: 80px 0; text-align: center; }
-        .values-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; }
-        .value-item h4 { font-size: 1.1rem; margin-bottom: 10px; }
-        .value-item p { color: var(--sub); font-size: 0.9rem; line-height: 1.6; }
+        /* Team Grid */
+        .team-section { padding: 80px 0; border-top: 1px solid var(--border); }
+        .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 50px; }
+        .team-card { padding: 40px 30px; border: 1px solid var(--border); border-radius: 12px; transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); background: #fff; }
+        .team-card:hover { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 188, 212, 0.08); }
+        .team-card h3 { font-size: 1.1rem; margin: 0 0 8px; color: var(--text); }
+        .team-card span { font-size: 0.75rem; color: var(--primary); font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; }
 
-        footer { padding: 80px 0; text-align: center; font-size: 0.65rem; color: #adb5bd; letter-spacing: 2px; border-top: 1px solid var(--border); }
+        /* Heartfelt Appreciation */
+        .gratitude-section { background: #f8f9fa; padding: 100px 0; width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; text-align: center; }
+        .gratitude-inner { max-width: 800px; margin: 0 auto; padding: 0 40px; }
+        .gratitude-inner p { font-size: 1.25rem; color: #555; line-height: 1.8; font-style: italic; }
+        .heart { color: #e91e63; font-size: 1.5rem; display: block; margin-bottom: 20px; }
+
+        footer { padding: 80px 0; text-align: center; font-size: 0.65rem; color: #adb5bd; letter-spacing: 2px; }
 
         @media (max-width: 850px) {
-            .narrative-grid, .values-grid { grid-template-columns: 1fr; gap: 40px; }
+            .team-grid { grid-template-columns: 1fr; }
             h1 { font-size: 2.2rem; }
         }
     </style>
@@ -61,45 +63,42 @@
         </header>
 
         <section class="story-hero">
-            <span class="kicker">The Origin</span>
-            <h1>Built on <span style="color: var(--primary)">Precision</span>,<br>Driven by Partnership.</h1>
+            <span class="kicker">Since 2021</span>
+            <h1>A leap of faith that became<br><span style="color: var(--primary)">a family mission.</span></h1>
         </section>
 
-        <main class="narrative-grid">
-            <div class="narrative-text">
-                <p>DnD Virtual Assistance Services didn't start in a boardroom; it started with a realization that the modern founder is spread too thin. </p>
-                <p>We saw brilliant entrepreneurs getting bogged down by the very tasks that should be seamless. From technical backend management to high-end video editing, we realized that what brands needed wasn't just "help"—they needed a <strong>technical backbone</strong>.</p>
-                <p>Today, we serve as the invisible force behind growing brands, specializing in turning operational chaos into streamlined success. We don't just work for you; we integrate with you.</p>
-            </div>
+        <section class="narrative">
+            <p>Our story began in 2021. We were working together in the same company when we realized we wanted to build something more personal—something that valued relationships as much as results. We chose to resign together and step into the world of marketing as a standalone team.</p>
+            <p>What started as a bold transition has grown into a thriving partnership. At <strong>DnD Virtual Assistance Services</strong>, we don't just see numbers or tasks; we see people. To us, our clients aren't just business partners—they are <strong>family</strong>. We believe that a strong, honest relationship is worth far more than the compensation we earn. It is this bond that has allowed us to grow through the kind words and referrals of those we’ve served.</p>
+        </section>
 
-            <aside class="philosophy-card">
-                <h3>The DnD Philosophy</h3>
-                <ul>
-                    <li><strong>Radical Ownership:</strong> We treat your inbox, your calendar, and your content as if they were our own.</li>
-                    <li><strong>Tech-First Mindset:</strong> We don't just do the work; we find the most efficient tool to automate it.</li>
-                    <li><strong>Human Connection:</strong> Behind the virtual interface, we are a dedicated team invested in your growth.</li>
-                </ul>
-            </aside>
-        </main>
-
-        <section class="values-section">
-            <span class="kicker">Core Values</span>
-            <div class="values-grid">
-                <div class="value-item">
-                    <h4>Integrity</h4>
-                    <p>Transparent communication and honest feedback are the foundations of our client relationships.</p>
+        <section class="team-section">
+            <span class="kicker">The Faces of DnD</span>
+            <div class="team-grid">
+                <div class="team-card">
+                    <span>Head of Operations</span>
+                    <h3>Prescious Abby D. Diocena</h3>
                 </div>
-                <div class="value-item">
-                    <h4>Efficiency</h4>
-                    <p>We believe in doing things right the first time, every time, through optimized workflows.</p>
+                <div class="team-card">
+                    <span>Graphic Designer</span>
+                    <h3>Philip Brent D. Dimabayao</h3>
                 </div>
-                <div class="value-item">
-                    <h4>Innovation</h4>
-                    <p>Constantly staying ahead of digital trends in video, marketing, and administration.</p>
+                <div class="team-card">
+                    <span>Video Editor</span>
+                    <h3>Cris A. Diocena</h3>
                 </div>
             </div>
         </section>
+    </div>
 
+    <section class="gratitude-section">
+        <div class="gratitude-inner">
+            <span class="heart">♥</span>
+            <p>"To our clients and ex-clients: thank you for believing in us. Your trust is our greatest asset, and we are deeply grateful for the privilege of helping your businesses grow."</p>
+        </div>
+    </section>
+
+    <div class="container">
         <footer>© 2026 DND MEDIA VIRTUAL ASSISTANCE SERVICES. ALL RIGHTS RESERVED.</footer>
     </div>
 
