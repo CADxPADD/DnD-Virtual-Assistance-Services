@@ -14,7 +14,12 @@
         
         /* Navigation & Logo */
         .header-nav { padding: 40px 0; display: flex; justify-content: space-between; align-items: center; }
-        .logo { width: 140px; }
+        .logo { width: 140px; display: block; }
+        
+        /* Added hover effect for the logo link */
+        .logo-link { transition: opacity 0.2s ease; }
+        .logo-link:hover { opacity: 0.8; }
+
         nav a { text-decoration: none; color: var(--sub); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-left: 30px; transition: 0.2s; }
         nav a:hover, nav a.active { color: var(--primary); }
 
@@ -72,10 +77,13 @@
 
     <div class="container">
         <header class="header-nav">
-            <img src="logo.png" alt="DnD Media" class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="DnD Media" class="logo">
+            </a>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="about.html">About</a>
+                <a href="story.html">Our Story</a>
                 <a href="services.html" class="active">Services</a>
             </nav>
         </header>
@@ -160,7 +168,7 @@
         </section>
     </div>
 
-    <footer>© 2026 DND MEDIA VIRTUAL ASSISTANCE SERVICES. ALL RIGHTS RESERVED.</footer>
+    <footer>© 2021 DND MEDIA VIRTUAL ASSISTANCE SERVICES. ALL RIGHTS RESERVED.</footer>
 
     <script>
         const cards = document.querySelectorAll('.card-3d');
@@ -170,7 +178,6 @@
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
                 
-                // Centering the rotation logic
                 const rX = ((y - rect.height/2) / (rect.height/2)) * 10;
                 const rY = ((x - rect.width/2) / (rect.width/2)) * -10;
                 
